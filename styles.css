@@ -58,7 +58,6 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  scroll-snap-type: y proximity;
 }
 
 body {
@@ -484,7 +483,6 @@ button {
   background: radial-gradient(circle at 85% 45%, rgba(240, 233, 219, 0.5) 0%, rgba(253, 251, 247, 0) 70%);
   overflow: hidden;
   box-sizing: border-box;
-  scroll-snap-align: start;
 }
 
 @media (min-width: 992px) {
@@ -716,13 +714,12 @@ button {
    ========================================================================== */
 .categories-section {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 32px 0 40px;
+  display: block;
+  width: 100%;
+  padding: 36px 0 30px;
+  margin-bottom: 30px;
   box-sizing: border-box;
-  scroll-snap-align: start;
+  clear: both;
 }
 
 .categories-section .container {
@@ -802,13 +799,12 @@ button {
    ========================================================================== */
 .recommendations-section {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 48px 0 40px;
+  display: block;
+  width: 100%;
+  padding: 40px 0 40px;
+  margin-top: 30px;
   box-sizing: border-box;
-  scroll-snap-align: start;
+  clear: both;
 }
 
 .recommendations-section .container {
@@ -819,7 +815,8 @@ button {
 }
 
 .recommendations-section .section-header {
-  margin-bottom: 22px;
+  margin-top: 10px;
+  margin-bottom: 24px;
 }
 
 .filter-tabs {
