@@ -802,14 +802,11 @@ button {
    ========================================================================== */
 .recommendations-section {
   position: relative;
-  height: calc(100vh - 56px);
-  min-height: calc(100vh - 56px);
-  max-height: calc(100vh - 56px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 10px 0;
+  padding: 24px 0 36px;
   box-sizing: border-box;
   scroll-snap-align: start;
 }
@@ -818,17 +815,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-.recommendations-section .section-header {
-  margin-bottom: 8px;
-}
-
-.recommendations-section .section-title {
-  font-size: 22px;
-  margin-bottom: 3px;
+  justify-content: flex-start;
 }
 
 .filter-tabs {
