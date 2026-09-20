@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLAVORIA | Fine Dining & Artisanal Recipe Experience</title>
+  <meta name="description" content="Experience fine dining at Flavoria. Delicious food, unforgettable moments, handcrafted recipes, and effortless table reservations.">
+  
+  <!-- Google Fonts: Playfair Display, Cormorant Garamond, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Favicon: Gold Crown -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 32'><path d='M5 28H43V25H5V28Z' fill='%23C59D5F'/><path d='M7 23L12 8L20 18L24 6L28 18L36 8L41 23H7Z' fill='%23C59D5F'/><circle cx='12' cy='6' r='2.5' fill='%23C59D5F'/><circle cx='24' cy='4' r='2.5' fill='%23C59D5F'/><circle cx='36' cy='6' r='2.5' fill='%23C59D5F'/></svg>">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- MAIN NAVIGATION -->
+  <nav class="main-nav" id="main-nav">
+    <div class="nav-inner container">
+      <!-- Left Navigation Links -->
+      <ul class="nav-links left-links">
+        <li><a href="#hero" class="nav-link active" id="nav-home">HOME</a></li>
+        <li><a href="#categories" class="nav-link" id="nav-menu">MENU</a></li>
+        <li><a href="#about" class="nav-link" id="nav-about">ABOUT</a></li>
+      </ul>
+
+      <!-- Center Brand Logo -->
+      <a href="#" class="brand-logo" id="brand-logo">
+        <div class="crown-icon">
+          <!-- Elegant Gold Crown SVG -->
+          <svg viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 28H43V25H5V28Z" fill="#C59D5F"/>
+            <path d="M7 23L12 8L20 18L24 6L28 18L36 8L41 23H7Z" fill="#C59D5F"/>
+            <circle cx="12" cy="6" r="2.5" fill="#C59D5F"/>
+            <circle cx="24" cy="4" r="2.5" fill="#C59D5F"/>
+            <circle cx="36" cy="6" r="2.5" fill="#C59D5F"/>
+            <circle cx="6" cy="22" r="1.5" fill="#FFFFFF"/>
+            <circle cx="42" cy="22" r="1.5" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <h1 class="brand-title">FLAVORIA</h1>
+        <span class="brand-subtitle">FINE DINING</span>
+      </a>
+
+      <!-- Right Navigation Links & Action Controls -->
+      <div class="nav-right">
+        <ul class="nav-links right-links">
+          <li><a href="#reservation" class="nav-link" id="nav-reservation-link">RESERVATION</a></li>
+          <li class="has-dropdown">
+            <a href="#pages" class="nav-link dropdown-toggle" id="nav-pages">
+              PAGES 
+              <svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#categories" onclick="window.scrollToSection('categories')">Menu Categories</a></li>
+              <li><a href="#recommendations" onclick="window.scrollToSection('recommendations')">Chef's Specials</a></li>
+              <li><a href="#reservation" onclick="window.openReservationModal()">Book a Table</a></li>
+              <li><a href="#special-offer" onclick="window.applySpecialOffer()">Special Offer (20% Off)</a></li>
+              <li><a href="#" onclick="window.openSearchModal(); return false;">Search Recipes</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="nav-actions">
+          <!-- Search Icon Button -->
+          <button class="nav-action-btn" id="btn-search-trigger" aria-label="Search recipes and dishes" title="Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          </button>
+          
+          <!-- User Profile Icon Button -->
+          <button class="nav-action-btn" id="btn-user-trigger" aria-label="User Account" title="My Account">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </button>
+
+          <!-- Shopping Cart / Bag Button -->
+          <button class="nav-action-btn cart-btn" id="btn-cart-trigger" aria-label="View shopping bag" title="Shopping Bag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <span class="cart-badge" id="cart-count-badge">0</span>
+          </button>
+
+          <!-- Mobile Menu Hamburger -->
+          <button class="mobile-menu-btn" id="btn-mobile-menu" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="hero">
+    <div class="hero-container container">
+      <div class="hero-content">
+        <span class="hero-eyebrow">EXPERIENCE FINE DINING</span>
+        <h2 class="hero-headline">
+          Delicious Food,<br>
+          Unforgettable <span class="accent-font">Moments</span>
+        </h2>
+        <p class="hero-description">
+          A perfect blend of taste, art, and ambiance.<br>
+          Crafted to delight your senses.
+        </p>
+        
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="hero-btn-book">BOOK A TABLE</button>
+          <button class="btn btn-outline" id="hero-btn-explore">EXPLORE MENU</button>
+        </div>
+
+        <!-- Carousel Dots & Swiping Navigation -->
+        <div class="hero-carousel-nav" id="hero-carousel-nav">
+          <button class="hero-nav-arrow prev" id="hero-prev-btn" aria-label="Previous Dish Slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <div class="hero-carousel-dots" id="hero-dots">
+            <button class="dot active" data-slide="0" aria-label="Slide 1: Roasted Herb Chicken"></button>
+            <button class="dot" data-slide="1" aria-label="Slide 2: Pan-Seared Salmon"></button>
+          </div>
+          <button class="hero-nav-arrow next" id="hero-next-btn" aria-label="Next Dish Slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Plated Dish Visual Showcase -->
+      <div class="hero-visual">
+        <div class="hero-dish-wrap" id="hero-dish-container">
+          <img 
+            id="hero-main-img" 
+            src="images/hero-dish.jpg" 
+            alt="Artisanal Roasted Herb Chicken with edible violas, tomatoes and balsamic glaze" 
+            class="hero-img active"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR MENU CATEGORIES SECTION -->
+  <section class="categories-section" id="categories">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title">OUR MENU CATEGORIES</h2>
+        <div class="section-flourish">
+          <span class="flourish-line"></span>
+          <svg class="flourish-icon" viewBox="0 0 24 16" fill="currentColor">
+            <path d="M12 0L14.5 5.5L20.5 6L16 10L17.5 16L12 13L6.5 16L8 10L3.5 6L9.5 5.5L12 0Z" fill="#C59D5F"/>
+          </svg>
+          <span class="flourish-line"></span>
+        </div>
+      </div>
+
+      <div class="categories-grid" id="categories-grid">
+        <!-- Starters -->
+        <div class="category-item" data-category="Starters">
+          <div class="cat-circle">
+            <img src="images/cat-starters.jpg" alt="Starters" loading="lazy">
+          </div>
+          <h3 class="cat-name">Starters</h3>
+        </div>
+
+        <!-- Main Course -->
+        <div class="category-item" data-category="Main Course">
+          <div class="cat-circle">
+            <img src="images/cat-main.jpg" alt="Main Course" loading="lazy">
+          </div>
+          <h3 class="cat-name">Main Course</h3>
+        </div>
+
+        <!-- Desserts -->
+        <div class="category-item" data-category="Desserts">
+          <div class="cat-circle">
+            <img src="images/cat-desserts.jpg" alt="Desserts" loading="lazy">
+          </div>
+          <h3 class="cat-name">Desserts</h3>
+        </div>
+
+        <!-- Beverages -->
+        <div class="category-item" data-category="Beverages">
+          <div class="cat-circle">
+            <img src="images/cat-beverages.jpg" alt="Beverages" loading="lazy">
+          </div>
+          <h3 class="cat-name">Beverages</h3>
+        </div>
+
+        <!-- Pizza -->
+        <div class="category-item" data-category="Pizza">
+          <div class="cat-circle">
+            <img src="images/cat-pizza.jpg" alt="Pizza" loading="lazy">
+          </div>
+          <h3 class="cat-name">Pizza</h3>
+        </div>
+
+        <!-- Chef Specials -->
+        <div class="category-item" data-category="Chef Specials">
+          <div class="cat-circle">
+            <img src="images/cat-specials.jpg" alt="Chef Specials" loading="lazy">
+          </div>
+          <h3 class="cat-name">Chef Specials</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHEF'S RECOMMENDATIONS SECTION -->
+  <section class="recommendations-section" id="recommendations">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title">CHEF'S RECOMMENDATIONS</h2>
+        <div class="section-flourish">
+          <span class="flourish-line"></span>
+          <svg class="flourish-icon" viewBox="0 0 24 16" fill="currentColor">
+            <path d="M12 0L14.5 5.5L20.5 6L16 10L17.5 16L12 13L6.5 16L8 10L3.5 6L9.5 5.5L12 0Z" fill="#C59D5F"/>
+          </svg>
+          <span class="flourish-line"></span>
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs" id="recommendation-tabs">
+        <button class="tab-btn active" data-filter="all">All Items</button>
+        <button class="tab-btn" data-filter="Starters">Starters</button>
+        <button class="tab-btn" data-filter="Main Course">Main Course</button>
+        <button class="tab-btn" data-filter="Desserts">Desserts</button>
+        <button class="tab-btn" data-filter="Beverages">Beverages</button>
+      </div>
+
+      <!-- 8 Dishes Cards Grid -->
+      <div class="dishes-grid" id="dishes-grid">
+        <!-- Rendered dynamically by app.js with full fidelity and interactive controls -->
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 4: SPECIAL OFFER BANNER & VALUE PROPOSITIONS -->
+  <div class="footer-page" id="footer-page">
+    <!-- SPECIAL OFFER BANNER SECTION -->
+    <section class="special-offer-section" id="special-offer">
+      <div class="offer-backdrop"></div>
+      <div class="offer-content text-center">
+        <span class="offer-eyebrow">SPECIAL OFFER</span>
+        <h2 class="offer-title">Get 20% Off On Your First Order</h2>
+        <button class="btn btn-primary" id="btn-order-offer">ORDER NOW</button>
+      </div>
+    </section>
+
+    <!-- VALUE PROPOSITIONS / FEATURES BAR (BOTTOM OF WEBSITE) -->
+    <section class="features-bar" id="features">
+      <div class="container features-grid">
+        <!-- 1: Fresh Ingredients -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Salad Bowl / Organic produce icon matching screenshot -->
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 16C6 22 10.5 26 16 26C21.5 26 26 22 26 16H6Z"/>
+              <path d="M11 16C11 13 13 8 16 7C19 8 21 13 21 16"/>
+              <path d="M16 7C14 5 11 5 9 8C9 12 11 16 11 16"/>
+              <path d="M16 7C18 5 21 5 23 8C23 12 21 16 21 16"/>
+              <line x1="4" y1="16" x2="28" y2="16"/>
+            </svg>
+          </div>
+          <div class="feature-info">
+            <h4 class="feature-heading">Fresh Ingredients</h4>
+            <p class="feature-sub">Farm to table</p>
+          </div>
+        </div>
+
+        <!-- 2: Expert Chefs -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Chef Hat with face icon matching screenshot -->
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 15C7.3 15 6 13.7 6 12C6 10.3 7.3 9 9 9C9.2 9 9.4 9 9.6 9.1C10.3 6.8 12.5 5 15 5C17.5 5 19.7 6.8 20.4 9.1C20.6 9 20.8 9 21 9C22.7 9 24 10.3 24 12C24 13.7 22.7 15 21 15"/>
+              <path d="M9 15H21V19H9V15Z"/>
+              <path d="M11 19C11 22 13 24 15 24C17 24 19 22 19 19"/>
+              <path d="M13 21.5C14 22 16 22 17 21.5"/>
+            </svg>
+          </div>
+          <div class="feature-info">
+            <h4 class="feature-heading">Expert Chefs</h4>
+            <p class="feature-sub">Passionate & experienced</p>
+          </div>
+        </div>
+
+        <!-- 3: Cozy Ambience -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Cozy Home Ambience matching screenshot -->
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 14L16 5L27 14"/>
+              <path d="M8 12V25H24V12"/>
+              <path d="M13 25V18H19V25"/>
+              <path d="M21 9V6H24V11.5"/>
+            </svg>
+          </div>
+          <div class="feature-info">
+            <h4 class="feature-heading">Cozy Ambience</h4>
+            <p class="feature-sub">Perfect for everyone</p>
+          </div>
+        </div>
+
+        <!-- 4: Fast Delivery -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <!-- Fast Delivery Truck with speed lines matching screenshot -->
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="9" width="16" height="12" rx="1"/>
+              <path d="M20 13H24L28 17V21H20V13Z"/>
+              <circle cx="9" cy="23" r="2.5"/>
+              <circle cx="24" cy="23" r="2.5"/>
+              <line x1="2" y1="12" x2="4" y2="12"/>
+              <line x1="1" y1="15" x2="4" y2="15"/>
+              <line x1="2" y1="18" x2="4" y2="18"/>
+            </svg>
+          </div>
+          <div class="feature-info">
+            <h4 class="feature-heading">Fast Delivery</h4>
+            <p class="feature-sub">On time, every time</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- 1. RECIPE INSPECTOR & DETAILS MODAL -->
+  <div class="modal-overlay" id="recipe-modal" aria-hidden="true">
+    <div class="modal-container recipe-modal-container">
+      <button class="modal-close" id="btn-close-recipe" aria-label="Close modal">&times;</button>
+      
+      <div class="recipe-modal-grid">
+        <div class="recipe-visual">
+          <img id="recipe-modal-img" src="" alt="Recipe photo">
+          <div class="recipe-tags-row" id="recipe-modal-tags"></div>
+        </div>
+
+        <div class="recipe-details">
+          <div class="recipe-header">
+            <span class="recipe-category" id="recipe-modal-category">CATEGORY</span>
+            <h3 class="recipe-title" id="recipe-modal-title">Recipe Title</h3>
+            <p class="recipe-subtitle" id="recipe-modal-subtitle">Subtitle</p>
+            
+            <div class="recipe-metrics">
+              <div class="metric">
+                <span class="metric-label">Prep Time</span>
+                <span class="metric-val" id="recipe-prep-time">15 mins</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Cook Time</span>
+                <span class="metric-val" id="recipe-cook-time">25 mins</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Calories</span>
+                <span class="metric-val" id="recipe-calories">450 kcal</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Rating</span>
+                <span class="metric-val gold-star" id="recipe-rating">★ 4.8</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="recipe-tabs">
+            <button class="recipe-tab-btn active" data-tab="ingredients">Ingredients</button>
+            <button class="recipe-tab-btn" data-tab="instructions">Cooking Steps</button>
+            <button class="recipe-tab-btn" data-tab="chef-note">Chef's Advice</button>
+          </div>
+
+          <div class="recipe-tab-pane active" id="pane-ingredients">
+            <p class="pane-hint">Click ingredients to check off as you prepare:</p>
+            <ul class="ingredients-list" id="recipe-ingredients-list">
+              <!-- Rendered dynamically -->
+            </ul>
+          </div>
+
+          <div class="recipe-tab-pane" id="pane-instructions">
+            <ol class="instructions-list" id="recipe-instructions-list">
+              <!-- Rendered dynamically -->
+            </ol>
+          </div>
+
+          <div class="recipe-tab-pane" id="pane-chef-note">
+            <div class="chef-advice-card">
+              <div class="chef-quote-icon">❝</div>
+              <p id="recipe-chef-note">Chef's secret technique and beverage pairing recommendation.</p>
+              <div class="wine-pairing-box">
+                <strong>Recommended Pairing:</strong> <span id="recipe-wine-pairing">Pinot Grigio or Crisp Chardonnay</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="recipe-modal-footer">
+            <div class="recipe-price-box">
+              <span class="price-label">Dish Price</span>
+              <span class="price-amount" id="recipe-modal-price">$24.99</span>
+            </div>
+            <div class="recipe-actions">
+              <button class="btn btn-outline btn-sm" id="btn-print-recipe" title="Print recipe book card">Print Recipe</button>
+              <button class="btn btn-primary" id="btn-add-recipe-dish">Add To Order</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. TABLE RESERVATION MODAL -->
+  <div class="modal-overlay" id="reservation-modal" aria-hidden="true">
+    <div class="modal-container reservation-modal-container">
+      <button class="modal-close" id="btn-close-reservation" aria-label="Close reservation modal">&times;</button>
+      
+      <div class="modal-header text-center">
+        <span class="gold-eyebrow">RESERVE AN EXPERIENCE</span>
+        <h3 class="modal-title">Book Your Fine Dining Table</h3>
+        <p class="modal-sub">Join us for an exquisite culinary evening at Flavoria.</p>
+      </div>
+
+      <form id="reservation-form" class="reservation-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="res-name">Full Name *</label>
+            <input type="text" id="res-name" placeholder="Lord / Lady Montgomery" required class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="res-phone">Phone Number *</label>
+            <input type="tel" id="res-phone" placeholder="+1 234 567 8900" required class="form-input">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="res-email">Email Address *</label>
+            <input type="email" id="res-email" placeholder="your@email.com" required class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="res-guests">Number of Guests *</label>
+            <select id="res-guests" class="form-select" required>
+              <option value="1">1 Person (Solo Dining)</option>
+              <option value="2" selected>2 Persons (Intimate Romance)</option>
+              <option value="4">4 Persons (Dinner with Friends)</option>
+              <option value="6">6 Persons (Family Gathering)</option>
+              <option value="8">8+ Persons (Chef's Private Table)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="res-date">Reservation Date *</label>
+            <input type="date" id="res-date" required class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="res-time">Preferred Time Slot *</label>
+            <select id="res-time" class="form-select" required>
+              <option value="12:30 PM">12:30 PM (Lunch Tasting)</option>
+              <option value="01:30 PM">01:30 PM (Lunch)</option>
+              <option value="06:00 PM">06:00 PM (Sunset Dinner)</option>
+              <option value="07:30 PM" selected>07:30 PM (Prime Evening)</option>
+              <option value="08:30 PM">08:30 PM (Candlelight Session)</option>
+              <option value="09:30 PM">09:30 PM (Late Night Gastronomy)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="res-seating">Atmosphere & Seating Area</label>
+          <div class="seating-options">
+            <label class="seating-radio">
+              <input type="radio" name="seating" value="Main Dining Room" checked>
+              <span>Main Dining Room</span>
+            </label>
+            <label class="seating-radio">
+              <input type="radio" name="seating" value="Candlelight Corner">
+              <span>Candlelight Corner</span>
+            </label>
+            <label class="seating-radio">
+              <input type="radio" name="seating" value="Garden Terrace">
+              <span>Garden Terrace</span>
+            </label>
+            <label class="seating-radio">
+              <input type="radio" name="seating" value="Wine Cellar Private">
+              <span>Wine Cellar Private</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="res-requests">Special Requests / Dietary Notes</label>
+          <textarea id="res-requests" placeholder="Anniversary celebration, gluten sensitivity, window view preference..." class="form-textarea" rows="2"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">CONFIRM TABLE RESERVATION</button>
+      </form>
+
+      <!-- Confirmation Screen -->
+      <div id="reservation-confirmation" class="reservation-confirmation hidden">
+        <div class="confirm-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        </div>
+        <h4 class="confirm-title">Table Successfully Reserved!</h4>
+        <p class="confirm-sub">Your culinary journey awaits. An official confirmation email with booking pass has been dispatched.</p>
+        <div class="reservation-ticket">
+          <div class="ticket-row"><span>Booking Code:</span> <strong id="ticket-code" class="gold-text">#FLV-8942</strong></div>
+          <div class="ticket-row"><span>Guest Name:</span> <strong id="ticket-name">-</strong></div>
+          <div class="ticket-row"><span>Date & Time:</span> <strong id="ticket-datetime">-</strong></div>
+          <div class="ticket-row"><span>Party Size:</span> <strong id="ticket-party">-</strong></div>
+          <div class="ticket-row"><span>Seating:</span> <strong id="ticket-seating">-</strong></div>
+        </div>
+        <button class="btn btn-outline btn-block mt-4" onclick="window.closeReservationModal()">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. SHOPPING CART & ORDER DRAWER -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay">
+    <div class="cart-drawer" id="cart-drawer">
+      <div class="cart-header">
+        <div class="cart-title-wrap">
+          <h3 class="cart-title">Your Gourmet Order</h3>
+          <span class="cart-item-count" id="cart-items-counter">(0 items)</span>
+        </div>
+        <button class="cart-close" id="btn-close-cart" aria-label="Close cart">&times;</button>
+      </div>
+
+      <!-- Free Delivery Progress Tracker -->
+      <div class="delivery-progress-wrap">
+        <div class="delivery-progress-bar">
+          <div class="progress-fill" id="delivery-progress-fill" style="width: 0%;"></div>
+        </div>
+        <span class="delivery-progress-label" id="delivery-progress-label">Add $50.00 more for Free Delivery</span>
+      </div>
+
+      <!-- Cart Items List -->
+      <div class="cart-items-body" id="cart-items-body">
+        <!-- Rendered dynamically -->
+        <div class="empty-cart-state" id="empty-cart-state">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <h4>Your bag is empty</h4>
+          <p>Explore Chef's recommendations to begin your dining experience.</p>
+          <button class="btn btn-primary btn-sm" onclick="window.closeCartDrawer(); window.scrollToSection('recommendations');">Browse Menu</button>
+        </div>
+      </div>
+
+      <!-- Cart Footer & Checkout Calculations -->
+      <div class="cart-footer" id="cart-footer">
+        <!-- Voucher Input -->
+        <div class="voucher-box">
+          <input type="text" id="voucher-input" placeholder="Promo code (e.g. FLAVOR20)" class="voucher-input">
+          <button class="btn btn-outline btn-sm" id="btn-apply-voucher">Apply</button>
+        </div>
+        <div id="voucher-status" class="voucher-status"></div>
+
+        <div class="cart-summary-rows">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="cart-subtotal">$0.00</span>
+          </div>
+          <div class="summary-row" id="row-discount" style="display: none;">
+            <span class="gold-text">Special Discount (20% Off)</span>
+            <span class="gold-text" id="cart-discount">-$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Delivery</span>
+            <span id="cart-delivery">$4.99</span>
+          </div>
+          <div class="summary-row total-row">
+            <span>Total</span>
+            <span id="cart-total">$0.00</span>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-block checkout-btn" id="btn-checkout">PROCEED TO CHECKOUT</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. LIVE RECIPE & DISH SEARCH MODAL -->
+  <div class="modal-overlay" id="search-modal" aria-hidden="true">
+    <div class="modal-container search-modal-container">
+      <button class="modal-close" id="btn-close-search" aria-label="Close search">&times;</button>
+      
+      <div class="search-input-wrap">
+        <svg class="search-modal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input type="text" id="search-input-field" placeholder="Search dishes, ingredients (e.g. Salmon, Truffle, Tiramisu, Pasta)..." autofocus>
+      </div>
+
+      <div class="search-results-list" id="search-results-list">
+        <!-- Search results dynamically rendered -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. USER PROFILE / SIGN IN MODAL -->
+  <div class="modal-overlay" id="user-modal" aria-hidden="true">
+    <div class="modal-container user-modal-container">
+      <button class="modal-close" id="btn-close-user" aria-label="Close user modal">&times;</button>
+      <div class="modal-header text-center">
+        <div class="crown-icon small">
+          <svg viewBox="0 0 48 32" fill="none"><path d="M5 28H43V25H5V28Z" fill="#C59D5F"/><path d="M7 23L12 8L20 18L24 6L28 18L36 8L41 23H7Z" fill="#C59D5F"/></svg>
+        </div>
+        <h3 class="modal-title">Flavoria Dining Club</h3>
+        <p class="modal-sub">Sign in to view reservation history, saved recipes, and VIP benefits.</p>
+      </div>
+      <form id="login-form" class="reservation-form" onsubmit="event.preventDefault(); window.handleUserLogin();">
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="login-email" required class="form-input" placeholder="guest@flavoria.com">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="login-password" required class="form-input" placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">SIGN IN</button>
+        <div class="text-center mt-3">
+          <a href="#" onclick="window.handleGuestDemo(event)" class="gold-link">Continue as Guest VIP Member</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION ENGINE -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
